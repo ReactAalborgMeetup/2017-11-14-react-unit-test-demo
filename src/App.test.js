@@ -18,7 +18,9 @@ describe('App.js', () => {
 	});
 
 	it('should render the full App without problems', () => {
-		shallow(<App crashLogo />);
+		const wrapper = shallow(<App crashLogo />);
+
+		expect(wrapper.prop('className')).to.equal('App');
 	});
 
 	it('should crash the logo', () => {
