@@ -1,8 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render, shallow } from 'enzyme';
+import { expect } from 'chai';
+import Logo from './components/logo';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+
+describe('App.js', () => {
+	it('should render the logo', () => {
+		const wrapper = render(<Logo />);
+
+		expect(wrapper.attr('alt')).to.equal('Logo');
+	})
 });
