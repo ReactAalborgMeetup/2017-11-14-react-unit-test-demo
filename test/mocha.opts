@@ -1,0 +1,3 @@
+./test/mocha-setup.js
+--require babel-register
+./src/App.test.js

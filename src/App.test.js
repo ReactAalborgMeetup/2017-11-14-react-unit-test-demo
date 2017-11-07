@@ -9,5 +9,11 @@ describe('App.js', () => {
 		const wrapper = render(<Logo />);
 
 		expect(wrapper.attr('alt')).to.equal('Logo');
+	});
+
+	it('should render the correct image', () => {
+		const wrapper = render(<Logo />);
+
+		expect(wrapper.attr('src')).to.equal('src/components/logo.svg');
 	})
 });
