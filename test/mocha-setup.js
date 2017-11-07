@@ -4,7 +4,12 @@ require('../src/setupTests');
 
 const rootDir = path.join(__dirname, '../');
 
-require.extensions['.svg'] = (module, file) => {
-	module.exports = file.substr(rootDir.length);
-	return module;
-}
+[
+	'svg',
+	'css',
+].forEach((ext) => {
+	require.extensions[`.${ext}`] = (module, file) => {
+		module.exports = file.substr(rootDir.length);
+		return module;
+	}
+});
