@@ -11,6 +11,7 @@ class App extends Component {
 
 	render() {
 		const { crashLogo } = this.props;
+
 		return (
 			<div className="App">
 				<header className="App-header">

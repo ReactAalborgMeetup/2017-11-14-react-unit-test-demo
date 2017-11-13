@@ -1,3 +1,4 @@
 ./test/mocha-setup.js
 --require babel-register
+--require jsdom-global/register
 ./src/App.test.js

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, shallow } from 'enzyme';
+import { render, shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import Logo from './components/logo';
 import App from './App';
@@ -14,7 +14,7 @@ describe('App.js', () => {
 	it('should render the correct image', () => {
 		const wrapper = render(<Logo />);
 
-		expect(wrapper.attr('src')).to.equal('src/components/logo.svg');
+		expect(wrapper.attr('src')).to.equal('logo.svg');
 	});
 
 	it('should render the full App without problems', () => {
@@ -27,5 +27,16 @@ describe('App.js', () => {
 		expect(() => {
 			shallow(<Logo crash />);
 		}).to.throw('We have been told to crash');
-	})
+	});
+
+	it('should start at the number 0', () => {
+		const wrapper = render(<App />);
+		expect(wrapper.state('number')).to.equal(0);
+	});
+
+	it('should increment on click', () => {
+		const wrapper = mount(<App />);
+
+		expect(wrapper.state('number')).to.equal(2);
+	});
 });
