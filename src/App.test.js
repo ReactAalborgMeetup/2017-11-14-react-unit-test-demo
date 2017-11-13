@@ -14,7 +14,7 @@ describe('App.js', () => {
 	it('should render the correct image', () => {
 		const wrapper = render(<Logo />);
 
-		expect(wrapper.attr('src')).to.equal('src/components/logo.svg');
+		expect(wrapper.attr('src')).to.equal('logo.svg');
 	});
 
 	it('should render the full App without problems', () => {

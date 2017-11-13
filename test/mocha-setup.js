@@ -9,7 +9,7 @@ const rootDir = path.join(__dirname, '../');
 	'css',
 ].forEach((ext) => {
 	require.extensions[`.${ext}`] = (module, file) => {
-		module.exports = file.substr(rootDir.length);
+		module.exports = file.split('/').slice(-1)[0];
 		return module;
 	}
 });
