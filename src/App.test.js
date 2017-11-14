@@ -3,6 +3,7 @@ import { render, shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import Logo from './components/logo';
 import App from './App';
+import renderer from 'react-test-renderer';
 
 describe('App.js', () => {
 	it('should render the logo', () => {
@@ -29,14 +30,8 @@ describe('App.js', () => {
 		}).to.throw('We have been told to crash');
 	});
 
-	it('should start at the number 0', () => {
-		const wrapper = render(<App />);
-		expect(wrapper.state('number')).to.equal(0);
-	});
-
-	it('should increment on click', () => {
-		const wrapper = mount(<App />);
-
-		expect(wrapper.state('number')).to.equal(2);
-	});
+	it('should render the same thing', () => {
+		const tree = renderer.create(<App/>);
+		expect(tree).to.matchSnapshot();
+	})
 });
