@@ -30,12 +30,15 @@ describe('App.js', () => {
 	});
 
 	it('should start at the number 0', () => {
-		const wrapper = render(<App />);
+		const wrapper = mount(<App />);
 		expect(wrapper.state('number')).to.equal(0);
 	});
 
 	it('should increment on click', () => {
 		const wrapper = mount(<App />);
+
+		wrapper.find('button').simulate('click');
+		wrapper.find('button').simulate('click');
 
 		expect(wrapper.state('number')).to.equal(2);
 	});
