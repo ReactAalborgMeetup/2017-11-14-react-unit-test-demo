@@ -2,6 +2,7 @@ import React from 'react';
 import { render, shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import Logo from './components/logo';
+import sinon from 'sinon';
 import App from './App';
 
 describe('App.js', () => {
@@ -42,4 +43,15 @@ describe('App.js', () => {
 
 		expect(wrapper.state('number')).to.equal(2);
 	});
+
+	it('should call the function one time', () => {
+
+		const onAboveZero = sinon.spy();
+		const wrapper = mount(<App />);
+
+		wrapper.find('button').simulate('click');
+		wrapper.find('button').simulate('click');
+
+		expect(onAboveZero.calledOnce, 'Only one time please').to.equal(true);
+	})
 });
