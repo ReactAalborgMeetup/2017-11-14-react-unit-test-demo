@@ -1,3 +1,33 @@
+## Intro to Unit-ish testing in React
+This project is meant as a little introduction to unit testing of your
+React code. There are several branches, that each introduce their own
+element.
+
+Start the Jest tests as `yarn test` (after your typical `yarn install`).
+
+After _stage2-mocha_ most tests should run in both create-react-app
+standard Jest, but also with the command `mocha` or `./node_modules/.bin/mocha`
+depending on how you've setup your bash.
+
+- _master_ Original create-react-app, including simple smoke test
+- _stage1-enzyme_ Introducing enzyme, and attribute testing
+- _stage2-mocha_ Mocha and jest are mostly the same thing. Look in the test/ folder
+- _stage3-shallow_ Shallow render testing with enzyme
+- _stage4-click_ Testing if your click handler works (interactivity test)
+- _stage5-snapshot_ Jest snapshot testing. Setup is only done for jest, but can also work in mocha
+
+### Where to go from here
+There is a little challenge in stage4, where I've added a failing test that
+uses sinon. You may also want to add some Redux action and reducer tests, 
+but that's easy. They're just functions that receive something and return something,
+about which you can express `expect()`tations.
+
+Also look at the files `src/setupTests.js` (not on master), where the jest configuration
+lives. And the files in `test/`, where we configure mocha. That's where you can do the
+real magic that makes tests both easy and fun.
+
+## create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
